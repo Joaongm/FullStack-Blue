@@ -79,4 +79,28 @@ router.post('/nova-publicacao', (req, res, next) => {
 
 })
 
+router.put('/publicacao/:pubId', (req, res, next) => {
+    const pubId = req.params.pubId
+
+    const author = 'David Sotto Mayor' // Mais tarde o 'author' será setado por autenticação
+    const title = req.body.title;
+    const text = req.body.text;
+    
+    const pubIndex = publications.findIndex( pub => pub.id == pubId );
+
+    if(pubIndex < 0){
+        return res.status(404).json({
+            message: "Publicação não encontrada!"
+        });
+    }
+
+    publications[pubIndex] = { id: pubId, author: author, title: title, text: text };
+
+    res.status(200).json({
+        message: "Publicação atualizada com sucesso!",
+        UpdatedPublication: publications[pubIndex]
+    })
+
+})
+
 module.exports = router;
