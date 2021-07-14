@@ -34,8 +34,8 @@ const publications = [
     }
 ];
 
-router.status(200).get('/', (req, res, next) => {
-    res.json({
+router.get('/', (req, res, next) => {
+    res.status(200).json({
         message: 'Funciona? Sim!',
         publications: publications
     });
@@ -47,7 +47,7 @@ router.get('/publicacoes/:pubId', (req, res, next) => {
     const pubIndex = publications.findIndex( pub => pub.id == pubId );
 
     if(pubIndex < 0){
-        return res.status(200).json({
+        return res.status(404).json({
             message: "Publicação não encontrada!"
         });
     }
@@ -57,6 +57,24 @@ router.get('/publicacoes/:pubId', (req, res, next) => {
     res.status(200).json({
         message: "Publicação encontrada com sucesso!",
         publication: pub
+    })
+
+})
+
+router.post('/nova-publicacao', (req, res, next) => {
+
+    const id = publications.length + 1; // Esse dado será gerenciado pelo DB
+    const author = 'David Sotto Mayor' // Mais tarde o 'author' será setado por autenticação
+    const title = req.body.title;
+    const text = req.body.text;
+
+    const newPublication = { id: id, author: author, title: title, text: text }
+
+    publications.push(newPublication);
+
+    res.status(201).json({
+        message: "Publicação criada com sucesso!",
+        newPublication: newPublication
     })
 
 })
