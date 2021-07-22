@@ -1,0 +1,44 @@
+.boxPost{
+    width: 100%;
+    max-width: 500px;
+    height: 550px;
+    outline: 10px solid #accbe1;
+    margin: 0 auto;
+    color: #003049;
+    background-color: #cee5f2;
+    position: relative;
+}
+
+.boxPost span{
+    background-color: #637081b0;
+    width: 500px;
+    z-index: 10;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 10px 0;
+    font-size: 18px;
+}
+
+.boxPost figure{
+    max-width: 500px;
+    background-color: #cee5f2;
+}
+
+.boxPost img{
+    width: 100%;
+}
+
+.boxPost h3{
+    margin: 5px 0;
+    font-size: 23px;
+}
+
+.boxPost p{
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.boxPost button{
+    margin: 15px 0;
+}

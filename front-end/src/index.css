@@ -4,3 +4,23 @@
   box-sizing: border-box;
   font-family: 'Philosopher', sans-serif;
 }
+
+body{
+  background-color: #eae2b7;
+}
+
+.btn-info{
+  background-color: #003049;
+  padding: 8px;
+  height: 45px;
+  width: 90px;
+  color: white;
+  font-size: 18px;
+  border: 0;
+  cursor: pointer;
+  outline: 5px solid #003049;
+}
+
+.btn-info:active{
+  outline: 5px solid #03121a;
+}

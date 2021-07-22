@@ -62,7 +62,7 @@ router.get('/publicacoes/:pubId', (req, res, next) => {
 
 router.post('/nova-publicacao', (req, res, next) => {
 
-    const id = publications.length + 1; // Esse dado será gerenciado pelo DB
+    const id = new Date().getTime(); // Esse dado será gerenciado pelo DB
     const author = 'David Sotto Mayor' // Mais tarde o 'author' será setado por autenticação
     const title = req.body.title;
     const text = req.body.text;

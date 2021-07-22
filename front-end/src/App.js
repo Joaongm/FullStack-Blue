@@ -1,9 +1,10 @@
 import './App.css';
+import Post from './components/Post/Post'
 
 function App() {
   return (
     <div className="App">
-      <h2>Hello World, from Bluekut</h2>
+      <Post/>
     </div>
   );
 }
