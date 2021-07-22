@@ -1,22 +1,18 @@
 import React from 'react';
 import classes from './Post.module.css'
 
-const Post = () => {
+const Post = (props) => {
     return (
         <article className={classes.boxPost}>
-            <span>Autor: username</span>
+            <span>Autor: {props.author}</span>
             <figure>
-                <img src="https://images.ecycle.com.br/wp-content/uploads/2021/05/20195924/o-que-e-paisagem.jpg.webp"
-                alt='descricao' />
+                <img src={props.image}
+                alt={`imagem de ${props.author}`} />
             </figure>
             <div>
-                <h3>Botar aqui a descrição da imagem!</h3>
+                <h3>{props.title}</h3>
                 <p>
-                    Lorem Ipsum is simply dummy text of the printing 
-                    and typesetting industry. Lorem Ipsum has been 
-                    the industry's standard dummy text ever since 
-                    the 1500s, when an unknown printer took a galley 
-                    of type and scrambled it to make a type specimen book.
+                    {props.text}
                 </p>
             </div>
             <button className='btn-info'>Ver Mais</button>

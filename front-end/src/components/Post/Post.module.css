@@ -3,14 +3,15 @@
     max-width: 500px;
     height: 550px;
     outline: 10px solid #accbe1;
-    margin: 0 auto;
+    margin: 30px auto;
     color: #003049;
     background-color: #cee5f2;
     position: relative;
 }
 
 .boxPost span{
-    background-color: #637081b0;
+    background-color: #637081e7;
+    color: white;
     width: 500px;
     z-index: 10;
     position: absolute;
@@ -27,6 +28,7 @@
 
 .boxPost img{
     width: 100%;
+    height: 300px;
 }
 
 .boxPost h3{
