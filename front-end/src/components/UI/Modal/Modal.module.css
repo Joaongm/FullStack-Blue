@@ -20,10 +20,7 @@
 .Modal main{
     padding: 0 3%;
     margin: 15px 0;
-    height: 50%;
+    height: 70%;
     overflow-y: scroll;
 }
 
-.Modal button{
-    margin: 10px;
-}

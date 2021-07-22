@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './Modal.module.css'
+import classes from './Modal.module.css';
 
 const Modal = (props) => {
     return (
@@ -15,9 +15,6 @@ const Modal = (props) => {
             <main>
                {props.children}
             </main>
-
-            <button className='btn-danger'>Cancelar</button>
-            <button className='btn-success'>Aceitar</button>
 
         </div>
     )

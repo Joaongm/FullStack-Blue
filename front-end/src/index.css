@@ -7,7 +7,7 @@
 
 body{
   background-color: #eae2b7;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .btn-info{
