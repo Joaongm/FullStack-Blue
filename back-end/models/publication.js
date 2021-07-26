@@ -1,4 +1,5 @@
-const mongoose, { Schema, Model } = require('mongoose');
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 const publicationSchema = new Schema({
     author: {
@@ -19,4 +20,4 @@ const publicationSchema = new Schema({
     },
 });
 
-module.exports = Model('publication', publicationSchema);
+module.exports = mongoose.model('Publication', publicationSchema);
