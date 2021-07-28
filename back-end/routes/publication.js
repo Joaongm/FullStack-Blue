@@ -143,12 +143,25 @@ router.put('/publicacao/:pubId', (req, res, next) => {
 })
 
 router.delete('/publicacao/:pubId', (req, res, next) => {
-    const pubId = +req.params.pubId;
+    const pubId = req.params.pubId;
 
-    publications.splice(pubId - 1, 1)
+    Publication.findByIdAndDelete(pubId)
+    .then( publication => {
+        if(!publication){
+            // tratar erro
+        }
 
-    res.status(200).json({
-        message: "Publicação excluida com sucesso!"
+        res.status(200).json({
+            message: "Publicação excluida com sucesso!",
+            publication: publication
+        })
+
+    })
+    .catch( err => {
+        res.status(500).json({
+            message: "Ocorreu um erro interno! Tente novamente mais tarde.",
+            error: err
+        })
     })
 
 })
