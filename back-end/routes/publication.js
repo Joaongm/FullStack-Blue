@@ -108,27 +108,38 @@ router.post('/nova-publicacao', (req, res, next) => {
 })
 
 router.put('/publicacao/:pubId', (req, res, next) => {
-    const pubId = +req.params.pubId
+    const pubId = req.params.pubId
 
-    const author = 'David Sotto Mayor' // Mais tarde o 'author' será setado por autenticação
-    const title = req.body.title;
-    const text = req.body.text;
-    
-    const pubIndex = publications.findIndex( pub => pub.id == pubId );
+    const updatedAuthor = 'David Sotto Mayor' // Mais tarde o 'author' será setado por autenticação
+    const updatedTitle = req.body.title;
+    const updatedText = req.body.text;
+    const updatedImage = req.body.image
 
-    if(pubIndex < 0){
-        return res.status(404).json({
-            message: "Publicação não encontrada!"
-        });
-    }
+    Publication.findByIdAndUpdate(pubId)
+    .then( publication => {
+        if(!publication){
+            // tratar erro
+        }
 
-    publications[pubIndex] = { id: pubId, author: author, title: title, text: text };
+        publication.author = updatedAuthor;
+        publication.title = updatedTitle;
+        publication.text = updatedText;
+        publication.image = updatedImage;
 
-    res.status(200).json({
-        message: "Publicação atualizada com sucesso!",
-        UpdatedPublication: publications[pubIndex]
+        return publication.save()
+        .then( result => {
+        res.status(200).json({
+                message: "Publicação atualizada com sucesso",
+                publication: result
+            })
+        })
     })
-
+    .catch( err => {
+        res.status(500).json({
+            message: "Ocorreu um erro interno! Tente novamente mais tarde.",
+            error: err
+        })
+    })
 })
 
 router.delete('/publicacao/:pubId', (req, res, next) => {
