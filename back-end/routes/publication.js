@@ -62,21 +62,24 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/publicacoes/:pubId', (req, res, next) => {
-    const pubId = +req.params.pubId;
+    const pubId = req.params.pubId;
 
-    const pubIndex = publications.findIndex( pub => pub.id == pubId );
+    Publication.findById(pubId)
+    .then( publication => {
+        if(!publication){
+            // tratar erro
+        }
 
-    if(pubIndex < 0){
-        return res.status(404).json({
-            message: "Publicação não encontrada!"
-        });
-    }
-
-    const pub = publications[pubIndex];
-
-    res.status(200).json({
-        message: "Publicação encontrada com sucesso!",
-        publication: pub
+        res.status(200).json({
+            message: "Filme encontrado com sucesso!",
+            publication: publication
+        })
+    })
+    .catch( err => {
+        res.status(500).json({
+            message: "Ocorreu um erro interno! Tente novamente mais tarde.",
+            error: err
+        })
     })
 
 })
