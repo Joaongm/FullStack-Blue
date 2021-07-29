@@ -55,10 +55,10 @@ router.get('/publicacoes/:pubId', (req, res, next) => {
 
 router.post('/nova-publicacao', (req, res, next) => {
 
-    const author = 'David Sotto Mayor' // Mais tarde o 'author' será setado por autenticação
+    const author = 'david' // Mais tarde o 'author' será setado por autenticação
     const title = req.body.title;
     const text = req.body.text;
-    const image = req.body.image
+    const image = req.body.image;
 
     const newPublication = new Publication({ author: author, title: title, text: text, image: image });
 

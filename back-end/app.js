@@ -26,13 +26,22 @@ app.use(publicationRoutes);
 // Setando middleware de gerenciamento de erros
 app.use(( error, req, res, next ) => {
 
-    console.log(error);
+    //console.log(error);
 
     const errorStatusCode = error.statusCode || 500;
-    const errorMessage = error.message
+    
+    const errorValues = error.errors;
+    const errorData = []
+    for(const err in errorValues){
+        errorData.push({
+            errorName: errorValues[err].name,
+            errorDetails: errorValues[err].properties
+        })
+    }
 
     res.status(errorStatusCode).json({
-        message: errorMessage
+        errorStatusCode: errorStatusCode,
+        errorData: errorData
     });
 
 })
