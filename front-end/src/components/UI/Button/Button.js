@@ -2,7 +2,6 @@ import React from 'react';
 import classes from './Button.module.css';
 
 const Button = (props) => {
-    console.log(props)
 
     const classesArray = [classes.Button]
     if(props.styleButton === 'info'){
@@ -20,8 +19,6 @@ const Button = (props) => {
     if(props.disabled){
         classesArray.push(classes.btnDisabled)
     }
-    
-    console.log(classesArray.join(' '))
 
     return (
         <button
