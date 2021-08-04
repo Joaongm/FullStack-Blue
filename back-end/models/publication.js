@@ -19,9 +19,8 @@ const publicationSchema = new Schema({
     text: {
         type: String,
         required: [true, 'O texto da publicação é obrigatório'],
-        minLength: [1, 'O texto da publicação deve ter pelo menos 1 caracter.'],
-        maxLength: [255, 'O texto da publicação deve ter no máximo 1255 caracteres.
-        '],
+        minLength: [1, 'O texto da publicação deve ter pelo menos 1 caractere.'],
+        maxLength: [255, 'O texto da publicação deve ter no máximo 1255 caracteres.'],
         trim: true
     },
     image: {

@@ -1,37 +1,59 @@
-.MainHeader{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 2%;
-    background-color: #7c98b3;
-    color: #003049;
+.MainHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 2%;
+  background-color: #43a3f165;
+  background-image: url("https://images.unsplash.com/photo-1572557798994-41431698dc8d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Ymx1ZSUyMHRleHR1cmV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #003049;
+  background-attachment: fixed;
 }
 
-.MainHeader ul{
-    display: flex;
+.MainHeader background-image {
+  transform: rotate(90deg);
 }
 
-.MainHeader li{
-    margin-right: 15px;
-    list-style-type: none;
+.MainHeader h2 {
+  text-shadow: 2px 5px 25px azure, 2px 2px 5px turquoise;
+  font-size: 2rem;
+  text-transform: none;
 }
 
-.MainHeader a{
-    text-decoration: none;
-    background-color: #accbe1;
-    padding: 10px 15px;
-    border: 5px solid #accbe1;
-    height: 45px;
-    width: 90px;
-    color: #003049;
-    cursor: pointer;
+.MainHeader ul {
+  display: flex;
 }
 
-.MainHeader a:hover,
-.MainHeader a:active,
-.MainHeader a:active{
-    border-left: 0;
-    border-right: 0;
-    padding: 10px 20px;
-    border-bottom: 5px solid #cee5f2;
+.MainHeader li {
+  margin-right: 15px;
+  list-style-type: none;
+}
+
+.MainHeader button {
+  text-decoration: none;
+  background-color: #accbe1ca;
+  padding: 10px 15px;
+  border: 5px solid #accbe1;
+  height: 45px;
+  width: 90px;
+  color: #003049;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.MainHeader button::after {
+  
+  position: absolute;
+  z-index: -1;
+  filter: blur(5px);
+
+}
+
+.MainHeader button:hover,
+.MainHeader button:active,
+.MainHeader button:active {
+  border-left: 0;
+  border-right: 0;
+  padding: 10px 20px;
+  border-bottom: 5px solid #cee5f2;
 }

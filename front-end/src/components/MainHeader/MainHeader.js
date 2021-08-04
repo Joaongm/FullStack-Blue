@@ -3,7 +3,9 @@ import classes from './MainHeader.module.css';
 
 const MainHeader = () => {
     return (
+        
         <header className={classes.MainHeader}>
+            
             <figure>
                 <h2>BlueKut</h2>
             </figure>
@@ -11,13 +13,14 @@ const MainHeader = () => {
             <nav>
                 <ul>
                     <li>
-                        <a href="#">Home</a>
+                        <button href="#">Home</button>
+                        
                     </li>
                     <li>
-                        <a href="#">Nova Postagem</a>
+                        <button href="#">Nova Postagem</button>
                     </li>
                     <li>
-                        <a href="#">Login</a>
+                        <button href="#">Login</button>
                     </li>
                 </ul>
             </nav>
