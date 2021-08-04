@@ -13,14 +13,14 @@ const MainHeader = () => {
             <nav>
                 <ul>
                     <li>
-                        <button href="#">Home</button>
+                        <button>Home</button>
                         
                     </li>
                     <li>
-                        <button href="#">Nova Postagem</button>
+                        <button>Nova Postagem</button>
                     </li>
                     <li>
-                        <button href="#">Login</button>
+                        <button>Login</button>
                     </li>
                 </ul>
             </nav>

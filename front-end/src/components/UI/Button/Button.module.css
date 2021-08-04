@@ -1,0 +1,36 @@
+.Button{
+    padding: 8px;
+    height: 45px;
+    width: 90px;
+    color: white;
+    font-size: 18px;
+    border: 0;
+    cursor: pointer;
+}
+
+.btnInfo{
+    background-color: #003049;
+}
+.btnInfo:active{
+    border: 5px solid #03121a;
+}
+
+.btnSuccess{
+    background-color: #508645;
+}
+.btnSuccess:active{
+    border: 5px solid #2d5026;
+}
+
+.btnDanger{
+    background-color: #d62828;
+}
+.btnDanger:active{
+    border: 5px solid #740404;
+}
+
+.btnDisabled{
+    background-color: #aaa !important;
+    color: black !important;
+    cursor: not-allowed !important;
+}

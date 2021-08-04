@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import Post from '../Post/Post';
 import Info from '../UI/Info/Info';
+import Button from '../UI/Button/Button';
 
 export class Posts extends Component {
     state = {
@@ -75,7 +76,7 @@ export class Posts extends Component {
             <Fragment>
                 <Info show={this.state.show} clicked={this.closeInfoHandler}>
                     Isso é um teste
-                    <button onClick={this.closeInfoHandler}>OK!</button>
+                    <Button styleButton='info' onClick={this.closeInfoHandler}>OK!</Button>
                 </Info>
                 {allPublications}
             </Fragment>

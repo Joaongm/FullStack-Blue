@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import classes from './CreatePost.module.css';
 import {v4 as uuid} from 'uuid';
+import Button from '../UI/Button/Button';
 
 const CreatePost = (props) => {
 
@@ -42,8 +43,8 @@ const CreatePost = (props) => {
             <textarea id='text' name='text' placeholder='Texto' ref={textRef}></textarea>
 
             <div>
-                <button className='btn-danger'>Cancelar</button>
-                <button className='btn-success' type='submit'>Publicar</button>
+                <Button styleButton='danger' disabled >Cancelar</Button>
+                <Button styleButton='success' typeButton='submit'>Publicar</Button>
             </div>
 
         </form>

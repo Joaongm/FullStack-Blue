@@ -16,47 +16,44 @@ body{
 .btn-info{
   background-color: #003049;
   padding: 8px;
-  height: 45px;
-  width: 90px;
+  height: 50px;
+  width: 100px;
   color: white;
   font-size: 18px;
   border: 0;
   cursor: pointer;
-  outline: 5px solid #003049;
 }
 
 .btn-info:active{
-  outline: 5px solid #03121a;
+  border: 5px solid #03121a;
 }
 
 .btn-success{
   background-color: #508645;
   padding: 8px;
-  height: 45px;
-  width: 90px;
+  height: 50px;
+  width: 100px;
   color: white;
   font-size: 18px;
   border: 0;
   cursor: pointer;
-  outline: 5px solid #508645;
 }
 
 .btn-success:active{
-  outline: 5px solid #2d5026;
+  border: 5px solid #2d5026;
 }
 
 .btn-danger{
   background-color: #d62828;
   padding: 8px;
-  height: 45px;
-  width: 90px;
+  height: 50px;
+  width: 100px;
   color: white;
   font-size: 18px;
   border: 0;
   cursor: pointer;
-  outline: 5px solid #d62828;
 }
 
 .btn-danger:active{
-  outline: 5px solid #9c3636;
+  border: 5px solid #9c3636;
 }
