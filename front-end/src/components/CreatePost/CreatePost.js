@@ -45,22 +45,61 @@ class CreatePost extends Component {
                 valid: false,
             },
         },
+        formValid: false,
+        formTouched: false
     };
 
+    validationHandler = (value, rules) => {
+
+        let isValid = true;
+
+        if(rules.required){
+            isValid = value.trim() !== '' && isValid;
+        }
+
+        if(rules.maxLength){
+            isValid = value.length <= rules.maxLength && isValid;
+        }
+
+        if(rules.minLength){
+            isValid = value.length >= rules.minLength && isValid
+        }
+
+        return isValid
+
+    }
+
     valuesHandler = (event, identifier) => {
+
+        this.setState({formTouched: true})
+
         let updatedInfos = { ...this.state.infos };
         let updatedElement = { ...updatedInfos[identifier] };
 
         updatedElement.value = event.target.value;
         updatedElement.touched = true;
-        // updatedElement.valid
+        updatedElement.valid = this.validationHandler(updatedElement.value, updatedElement.validation)
 
         updatedInfos[identifier] = updatedElement;
 
-        this.setState({ infos: updatedInfos });
+
+        let isValid = true;
+        for(let key in updatedInfos){
+            isValid = updatedInfos[key].valid && isValid;
+        }
+
+        this.setState({ infos: updatedInfos, formValid: isValid});
     };
 
-    clearInputsHandler = () => {};
+    clearInputsHandler = () => {
+        let updatedInfos = {...this.state.infos}
+        for(let key in updatedInfos){
+            updatedInfos[key].value = ''
+            updatedInfos[key].valid = false
+        }
+        
+        this.setState({infos: updatedInfos, formTouched: false, formValid: false})
+    };
 
     submitFormHandler = (event) => {
         event.preventDefault();
@@ -119,10 +158,11 @@ class CreatePost extends Component {
                     <Button
                         styleButton="danger"
                         onClick={this.clearInputsHandler}
+                        disabled={!this.state.formTouched}
                     >
                         Cancelar
                     </Button>
-                    <Button styleButton="success" typeButton="submit">
+                    <Button styleButton="success" typeButton="submit" disabled={!this.state.formValid}>
                         Publicar
                     </Button>
                 </div>
