@@ -10,6 +10,13 @@ const CreatePost = (props) => {
     const titleRef = useRef();
     const textRef = useRef();
 
+    const clearInputsHandler = () => {
+        authorRef.current.value = '';
+        imageUrlRef.current.value = '';
+        titleRef.current.value = '';
+        textRef.current.value = '';
+    }
+
 
     const submitFormHandler = (event) => {
         
@@ -27,8 +34,9 @@ const CreatePost = (props) => {
             text:textValue,
         }
 
-        props.onGetForm(formData)
+        props.onGetForm(formData);
 
+        clearInputsHandler();
 
     }
 
@@ -43,7 +51,7 @@ const CreatePost = (props) => {
             <textarea id='text' name='text' placeholder='Texto' ref={textRef}></textarea>
 
             <div>
-                <Button styleButton='danger' disabled >Cancelar</Button>
+                <Button styleButton='danger' onClick={clearInputsHandler} >Cancelar</Button>
                 <Button styleButton='success' typeButton='submit'>Publicar</Button>
             </div>
 
