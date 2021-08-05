@@ -48,8 +48,7 @@ app.use(( error, req, res, next ) => {
 
 
 const port = 8080;
-
-mongoose.connect('mongodb://localhost:27017', {
+mongoose.connect('mongodb+srv://david:bl0VgI0FsJZEFE0O@cluster0.9gsy2.mongodb.net/publications?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
