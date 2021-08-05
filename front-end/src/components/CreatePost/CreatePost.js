@@ -67,7 +67,6 @@ class CreatePost extends Component {
     };
 
     validationHandler = (value, rules) => {
-        console.log(rules);
 
         let isValid = true;
 
@@ -114,6 +113,7 @@ class CreatePost extends Component {
         for (let key in updatedInfos) {
             updatedInfos[key].value = '';
             updatedInfos[key].valid = false;
+            updatedInfos[key].touched = false;
         }
 
         this.setState({

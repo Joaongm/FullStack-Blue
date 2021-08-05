@@ -1,13 +1,14 @@
 .Input{
-    
+    width: 80%;
+    padding-top: 5px;
+    display: block;
 }
 
 .Input input,
 .Input textarea{
-    width: 70%;
-    margin: 10px 0;
+    width: 100%;
     padding: 10px;
-    background-color:  #cee5f2;
+    background-color: #cee5f2;
     border: 0;
     border: 2px solid #003049;
     font-size: 18px;
@@ -20,4 +21,16 @@
 .Input textarea{
     padding: 10px;
     padding-bottom: 30px;
+}
+
+.Input .invalid{
+    color: rgb(200, 50, 50);
+}
+
+.Input .valid{
+    color: rgb(2, 101, 2);
+}
+
+.touched{
+    background-color: rgba(108, 51, 51, 0.401) !important;
 }

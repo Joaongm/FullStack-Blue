@@ -1,9 +1,13 @@
 import React from 'react';
+import classes from './Input.module.css';
 
 const Input = (props) => {
-    console.log(props)
+    const { inputType, touched, valid } = props;
 
-    const { inputType } = props;
+    let inputTouched;
+    if(touched === true && props.value.length === 0){
+        inputTouched = classes.touched
+    }
 
     let inputField;
     switch(inputType){
@@ -14,6 +18,7 @@ const Input = (props) => {
                     value={props.value}
                     onChange={props.onChange}
                     placeholder={props.placeholder}
+                    className={inputTouched}
                 />
             )
             break;
@@ -24,6 +29,7 @@ const Input = (props) => {
                     value={props.value}
                     onChange={props.onChange}
                     placeholder={props.placeholder}
+                    className={inputTouched}
                 />
             )
             break;
@@ -34,6 +40,7 @@ const Input = (props) => {
                 value={props.value}
                 onChange={props.onChange}
                 placeholder={props.placeholder}
+                className={inputTouched}
             ></textarea>
             )
             break;
@@ -43,8 +50,8 @@ const Input = (props) => {
 
 
     return (
-        <div>
-            <label>{props.validation.message}</label>
+        <div className={classes.Input}>
+            <label className={ valid ? classes.valid : classes.invalid } >{touched && props.validation.message}</label>
             {inputField}
         </div>
     )
