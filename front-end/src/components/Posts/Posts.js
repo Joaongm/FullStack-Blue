@@ -62,6 +62,17 @@ export class Posts extends Component {
         this.setState({ show: false }) 
     }
 
+    captureIdHandler = (data) => {
+        const { treatment, id } = data;
+        if(treatment === 'delete'){
+            const publications = [...this.state.publications];
+            const updatedPublications = publications.filter( pub => pub.id !== id);
+            console.log(updatedPublications)
+            this.setState({publications: updatedPublications});
+        }
+    }
+
+
     render() {
 
         const pubs = this.state.publications
@@ -70,12 +81,12 @@ export class Posts extends Component {
         if (pubs.length === 0) {
             allPublications = <p>Você não possui publicações!</p>
         }
-        allPublications = pubs.map(postKey => <Post {...postKey} key={postKey.id} />)
+        allPublications = pubs.map(postKey => <Post {...postKey} key={postKey.id} onCaptureId={this.captureIdHandler}/>)
 
         return (
             <Fragment>
                 <Info show={this.state.show} clicked={this.closeInfoHandler}>
-                    Isso é um teste
+                    <p>Criado com sucesso!!!</p>
                     <Button styleButton='info' onClick={this.closeInfoHandler}>OK!</Button>
                 </Info>
                 {allPublications}
