@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import classes from './CreatePost.module.css';
-import { v4 as uuid } from 'uuid';
 import Button from '../UI/Button/Button';
 import Input from '../UI/Input/Input';
 
@@ -127,9 +126,8 @@ class CreatePost extends Component {
         event.preventDefault();
 
         const formData = {
-            id: uuid(),
             author: this.state.infos.authorInfo.value,
-            imageUrl: this.state.infos.imageUrlInfo.value,
+            image: this.state.infos.imageUrlInfo.value,
             title: this.state.infos.titleInfo.value,
             text: this.state.infos.textInfo.value,
         };

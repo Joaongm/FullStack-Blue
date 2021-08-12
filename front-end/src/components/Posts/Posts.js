@@ -64,19 +64,6 @@ export class Posts extends Component {
         this.fetchData()
     }
 
-    // componentDidUpdate(prevProps, prevState){
-    //     if (prevProps.post!== this.props.post){
-    //         this.setState({
-    //             publications: [
-    //                 this.props.post,
-    //                 ...this.state.publications
-    //             ],
-    //             show: true
-    //         })
-            
-    //     }
-    // }
-
     closeInfoHandler = () => {
         this.setState({ show: false }) 
     }
