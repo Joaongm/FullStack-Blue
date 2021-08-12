@@ -4,7 +4,7 @@ import classes from './Post.module.css'
 const Post = (props) => {
 
     const captureIdHandler = (treatment) => {
-        const id = props.id;
+        const id = props._id;
 
         props.onCaptureId({ id: id, treatment: treatment });
         

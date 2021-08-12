@@ -8,9 +8,8 @@ import React, { Component } from 'react'
 
 class App extends Component {
   state = {
-    postagem : null
+    postData : null
   }
-
 
   async getFormHandler(data){
     await fetch('http://localhost:8080/nova-publicacao', {
@@ -28,10 +27,8 @@ class App extends Component {
 
       <CreatePost onGetForm={this.getFormHandler} />
 
-      <Posts post={this.state.postagem} />
+      <Posts post={this.state.postagem} onDelete={this.deleteHandler}/>
     </div>
-
-
 
   );
 };

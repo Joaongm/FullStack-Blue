@@ -50,8 +50,12 @@ export class Posts extends Component {
         loading: false,
         publications: []
     }
+    
+    componentDidMount(){
+        this.fetchData()
+    }
 
-    async fetchData () {
+    fetchData = async () => {
         const response = await fetch('http://localhost:8080/');
         const data = await response.json();
         console.log(data.publications)
@@ -60,7 +64,10 @@ export class Posts extends Component {
 
     }
 
-    componentDidMount(){
+    deleteHandler = async (data) => {
+        await fetch('http://localhost:8080/publicacao/' + data.id, {
+            method: 'DELETE'
+        })
         this.fetchData()
     }
 
@@ -68,15 +75,6 @@ export class Posts extends Component {
         this.setState({ show: false }) 
     }
 
-    captureIdHandler = (data) => {
-        const { treatment, id } = data;
-        if(treatment === 'delete'){
-            const publications = [...this.state.publications];
-            const updatedPublications = publications.filter( pub => pub.id !== id);
-            console.log(updatedPublications)
-            this.setState({publications: updatedPublications});
-        }
-    }
 
 
     render() {
@@ -87,7 +85,7 @@ export class Posts extends Component {
         if (pubs.length === 0) {
             return allPublications = <h1>Você não possui publicações!</h1>
         }
-        allPublications = pubs.map(postKey => <Post {...postKey} key={postKey._id} onCaptureId={this.captureIdHandler}/>)
+        allPublications = pubs.map(postKey => <Post {...postKey} key={postKey._id} onCaptureId={this.deleteHandler}/>)
 
         return (
             <Fragment>
