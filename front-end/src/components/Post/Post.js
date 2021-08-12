@@ -14,7 +14,7 @@ const Post = (props) => {
         <article className={classes.boxPost}>
             <span>Autor: {props.author}</span>
             <figure>
-                <img src={props.imageUrl}
+                <img src={props.image}
                 alt={`imagem de ${props.author}`} />
             </figure>
             <div>

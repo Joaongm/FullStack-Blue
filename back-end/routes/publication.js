@@ -55,7 +55,7 @@ router.get('/publicacoes/:pubId', (req, res, next) => {
 
 router.post('/nova-publicacao', (req, res, next) => {
 
-    const author = 'david' // Mais tarde o 'author' será setado por autenticação
+    const author = req.body.author
     const title = req.body.title;
     const text = req.body.text;
     const image = req.body.image;
@@ -80,7 +80,7 @@ router.post('/nova-publicacao', (req, res, next) => {
 router.put('/publicacao/:pubId', (req, res, next) => {
     const pubId = req.params.pubId
 
-    const updatedAuthor = 'David Sotto Mayor' // Mais tarde o 'author' será setado por autenticação
+    const updatedAuthor = req.body.author // Mais tarde o 'author' será setado por autenticação
     const updatedTitle = req.body.title;
     const updatedText = req.body.text;
     const updatedImage = req.body.image
