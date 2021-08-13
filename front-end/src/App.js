@@ -8,15 +8,16 @@ import React, { Component } from 'react'
 
 class App extends Component {
   state = {
-    postData : null
+    postData : false
   }
 
-  async getFormHandler(data){
+  getFormHandler = async(data) => {
     await fetch('http://localhost:8080/nova-publicacao', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     })
+    this.setState( prevState => { return {postData: !prevState.postData} })
   }
 
 
@@ -27,7 +28,7 @@ class App extends Component {
 
       <CreatePost onGetForm={this.getFormHandler} />
 
-      <Posts post={this.state.postagem} onDelete={this.deleteHandler}/>
+      <Posts post={this.state.postagem} addNewPost={this.state.postData}/>
     </div>
 
   );

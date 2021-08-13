@@ -55,6 +55,12 @@ export class Posts extends Component {
         this.fetchData()
     }
 
+    componentDidUpdate(prevProps, prevState){
+        if(prevProps.addNewPost !== this.props.addNewPost){
+            this.fetchData()
+        }
+    }
+
     fetchData = async () => {
         const response = await fetch('http://localhost:8080/');
         const data = await response.json();
@@ -78,6 +84,8 @@ export class Posts extends Component {
 
 
     render() {
+
+        console.log(this.props.addNewPost)
 
         const pubs = this.state.publications
 
