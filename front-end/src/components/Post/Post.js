@@ -25,7 +25,7 @@ const Post = (props) => {
             </div>
             <button className='btn-danger' onClick={() => captureIdHandler('delete')} >Deletar</button>
             <button className='btn-info'>Ver Mais</button>
-            <button className='btn-success'>Atualizar</button>
+            <button className='btn-success' onClick={() => captureIdHandler('update')}>Atualizar</button>
 
 
         </article>

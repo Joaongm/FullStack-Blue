@@ -70,8 +70,24 @@ export class Posts extends Component {
 
     }
 
-    deleteHandler = async (data) => {
-        await fetch('http://localhost:8080/publicacao/' + data.id, {
+    captureIdHandler = (infos) => {
+        if(infos.treatment === 'delete'){
+            return this.deleteHandler(infos.id);
+        }
+
+        if(infos.treatment === 'update'){
+            const listOfPubs = [...this.state.publications];
+            const updatedPub = listOfPubs.find( pub => pub._id === infos.id );
+            if(!updatedPub){
+                console.log('Publicação não encontrada!');
+                return;
+            }
+            this.props.onCaptureUpdatePublication(updatedPub);
+        }
+    }
+
+    deleteHandler = async (id) => {
+        await fetch('http://localhost:8080/publicacao/' + id, {
             method: 'DELETE'
         })
         this.fetchData()
@@ -85,15 +101,13 @@ export class Posts extends Component {
 
     render() {
 
-        console.log(this.props.addNewPost)
-
         const pubs = this.state.publications
 
         let allPublications;
         if (pubs.length === 0) {
             return allPublications = <h1>Você não possui publicações!</h1>
         }
-        allPublications = pubs.map(postKey => <Post {...postKey} key={postKey._id} onCaptureId={this.deleteHandler}/>)
+        allPublications = pubs.map(postKey => <Post {...postKey} key={postKey._id} onCaptureId={this.captureIdHandler}/>)
 
         return (
             <Fragment>
